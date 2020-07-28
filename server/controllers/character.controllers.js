@@ -11,6 +11,21 @@ module.exports.findAll = async (req, res) => {
   }
 }
 
+module.exports.setMain = async (req, res) => {
+  try {
+    const userID = req.user.id
+    const characterID = req.params.id
+
+    await models.character.update({ main: false }, { where: { userId: userID } })
+    await models.character.update({ main: true }, { where: { id: characterID } })
+
+    res.send({ message: `Set character ID ${characterID} to main character for user ID ${userID}` })
+  } catch (err) {
+    console.error(err)
+    res.status(500).send({ message: err.message || 'Cannot set main' })
+  }
+}
+
 module.exports.delete = async (req, res) => {
   try {
     const id = req.params.id

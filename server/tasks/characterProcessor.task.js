@@ -20,7 +20,10 @@ const createDatabaseCharacter = async (userID, characterID, info) => {
     }
 
     console.log(`Character ID ${characterID} does not exist or needs to be updated`)
-    await models.character.upsert({ id: characterID, name: info.name, userId: userID, corporationId: info.corporation_id })
+
+    const main = await models.character.count({ where: { userId: userID } })
+
+    await models.character.upsert({ id: characterID, name: info.name, main: !main, userId: userID, corporationId: info.corporation_id })
     console.log(`Character ID ${characterID} has been added to the database or updated`)
     return
   } catch (err) {

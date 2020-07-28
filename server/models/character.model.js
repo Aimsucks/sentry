@@ -12,6 +12,10 @@ module.exports = (sequelize) => {
       allowNull: false,
       type: DataTypes.STRING,
       unique: true
+    },
+    main: {
+      allowNull: false,
+      type: DataTypes.BOOLEAN
     }
   })
 }
