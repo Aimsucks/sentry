@@ -13,7 +13,7 @@ router.get('/login/success', async (req, res) => {
       discord: {
         username: discordUser.username,
         discriminator: discordUser.discriminator,
-        avatar: discordUser.displayAvatarURL({ format: 'jpg' })
+        avatar: discordUser.displayAvatarURL({ format: 'png' })
       }
     })
   } else {

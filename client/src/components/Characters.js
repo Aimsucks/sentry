@@ -30,7 +30,10 @@ class Characters extends Component {
     return (
       <div>
         <h1>My Characters</h1>
-        <ListCharacters characters={characters} />
+        <table>
+          <thead><th colspan='4'>Characters</th></thead>
+          <ListCharacters characters={characters} />
+        </table>
       </div>
     )
   }

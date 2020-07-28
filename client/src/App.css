@@ -1,45 +1,35 @@
-.App {
+body {
   text-align: center;
-  font-size: calc(10px + 2vmin);
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-input {
-  height: 40px;
-  width: 50%;
-  border: none;
-  border-bottom: 2px #101113 solid;
-  background: none;
-  font-size: 1.5rem;
-  color: #787a80;
-}
-
-input:focus {
-  outline: none;
+  font-size: 20px;
 }
 
 button {
-  width: 25%;
-  height: 45px;
-  border: none;
-  margin-left: 10px;
+  width: 50%;
+  height: 60px;
+  padding: 10px;
+
+  margin: auto;
+
+  border: solid;
+  border-color: #FFFFFF;
+  border-width: 1px;
+  border-radius: 10px;
+
   font-size: 25px;
-  background: #101113;
-  border-radius: 5px;
-  color: #787a80;
+  color: #FFFFFF;
+  background: #23272A;
+  
   cursor: pointer;
 }
 
-button:focus {
-  outline: none;
+button:hover {
+  border-color: #ff0000
 }
 
 ul {
   list-style: none;
   text-align: left;
-  padding: 15px;
+  padding: 0px;
   background: #171a1f;
   border-radius: 5px;
 }
@@ -51,37 +41,20 @@ li {
   background: #282c34;
   border-radius: 5px;
   overflow-wrap: break-word;
-  cursor: pointer;
 }
 
-@media only screen and (min-width: 300px) {
-  .App {
-    width: 80%;
-  }
-
-  input {
-    width: 100%
-  }
-
-  button {
-    width: 100%;
-    margin-top: 15px;
-    margin-left: 0;
-  }
+table {
+  width: 100%;
 }
 
-@media only screen and (min-width: 640px) {
-  .App {
-    width: 60%;
-  }
+.characterButton {
+  text-align: right;
+}
 
-  input {
-    width: 50%;
-  }
+.characterPortrait {
+  height: 100px
+}
 
-  button {
-    width: 30%;
-    margin-left: 10px;
-    margin-top: 0;
-  }
+.button {
+  height: 50px;
 }
