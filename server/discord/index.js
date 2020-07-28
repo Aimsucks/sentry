@@ -1,7 +1,7 @@
 const { Client, Intents } = require('discord.js')
 const client = new Client({ ws: { intents: Intents.ALL } })
 
-client.once('ready', () => {
+client.once('ready', async () => {
   console.log(`Authenticated on Discord as ${client.user.tag}`)
 })
 

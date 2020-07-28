@@ -32,7 +32,6 @@ passport.use(new DiscordStrategy({
         where: { id: profile.id },
         defaults: { id: profile.id }
       })
-    console.log(user[0].toJSON())
     done(null, user[0].toJSON())
   } catch (err) {
     console.error(err)

@@ -79,11 +79,6 @@ app.get('/', authenticationCheck, (req, res) => {
   })
 })
 
-app.get('/logout', (req, res) => {
-  req.logout()
-  res.redirect('/')
-})
-
 const checkDatabaseConnection = async () => {
   console.log('Checking database connection...')
   try {
