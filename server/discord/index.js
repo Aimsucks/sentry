@@ -5,5 +5,6 @@ client.once('ready', async () => {
   console.log(`Authenticated on Discord as ${client.user.tag}`)
 })
 
+module.exports.admin = require('./admin')
+
 module.exports.client = client
-// client.login(process.env.TOKEN)

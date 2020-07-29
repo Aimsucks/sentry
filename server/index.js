@@ -15,6 +15,7 @@ require('./strategies/eve.strategy')
 
 const authenticationRoute = require('./routes/authentication.routes')
 const characterRoute = require('./routes/character.routes')
+const discordRoute = require('./routes/discord.routes')
 
 const app = express()
 
@@ -51,6 +52,7 @@ app.use(passport.session())
 
 app.use('/auth', authenticationRoute)
 app.use('/api/characters', characterRoute)
+app.use('/api/discord', discordRoute)
 
 app.use((err, req, res, next) => {
   console.error(err)
