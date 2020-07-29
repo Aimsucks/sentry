@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 import ListCharacters from './ListCharacters'
+import AddCharacter from './AddCharacter'
 
 class Characters extends Component {
   state = {
@@ -29,10 +30,10 @@ class Characters extends Component {
 
     return (
       <div>
-        <h1>My Characters</h1>
         <table>
-          <thead><th colspan='4'>Characters</th></thead>
+          <thead><th class='tableHeader'>Characters</th></thead>
           <ListCharacters characters={characters} />
+          <thead><th class='addButton'><AddCharacter /></th></thead>
         </table>
       </div>
     )

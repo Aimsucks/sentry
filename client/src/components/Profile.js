@@ -39,7 +39,7 @@ class Profile extends Component {
         {authenticated ? (
           <>
             <User user={user.discord} />
-            <Characters />
+            <Characters /><br />
             <Login authenticated={authenticated} onNotAuthenticated={this.handleNotAuthenticated} />
           </>
         ) : (
