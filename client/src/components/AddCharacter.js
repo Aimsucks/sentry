@@ -7,7 +7,7 @@ export default class Login extends Component {
   render () {
     return (
       <>
-        <Row className='centered-text' style={{ marginTop: 10 }}>
+        <Row className='centered-text' style={{ marginTop: 20 }}>
           <Col>
             <Button type='ghost' icon={<PlusOutlined />} shape='circle' size='large' onClick={this.handleAddCharacterClick} />
           </Col>
