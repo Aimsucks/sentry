@@ -3,7 +3,7 @@ const { models } = require('../models')
 module.exports.findAll = async (req, res) => {
   try {
     const id = req.user.id
-    const characters = await models.character.findAll({ where: { userId: id }, include: { all: true, nested: true }, order: { name: 'ASC ' } })
+    const characters = await models.character.findAll({ where: { userId: id }, include: { all: true, nested: true }, order: [['name', 'ASC']] })
     res.send(characters.map(character => character.toJSON()))
   } catch (err) {
     console.error(err)
