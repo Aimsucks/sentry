@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import { Row, Col, Typography } from 'antd'
+
 import ListCharacters from './ListCharacters'
 import AddCharacter from './AddCharacter'
+
+const { Title } = Typography
 
 class Characters extends Component {
   state = {
@@ -29,13 +33,19 @@ class Characters extends Component {
     const { characters } = this.state
 
     return (
-      <div>
-        <table>
-          <thead><th class='tableHeader'>Characters</th></thead>
-          <ListCharacters characters={characters} />
-          <thead><th class='addButton'><AddCharacter /></th></thead>
-        </table>
-      </div>
+      <>
+        <Row style={{ paddingTop: 50 }}>
+          <Col span={24}>
+            <Row className='centered-text'>
+              <Col>
+                <Title className='no-title-margin'>Characters</Title>
+              </Col>
+            </Row>
+            <ListCharacters characters={characters} updateCharacters={this.getCharacters} />
+            <AddCharacter />
+          </Col>
+        </Row>
+      </>
     )
   }
 }

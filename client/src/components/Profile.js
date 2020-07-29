@@ -5,6 +5,9 @@ import User from './User'
 import Characters from './Characters'
 import Login from './Login'
 
+import { Layout, Row, Col } from 'antd'
+const { Content } = Layout
+
 class Profile extends Component {
   state = {
     authenticated: false,
@@ -35,17 +38,22 @@ class Profile extends Component {
   render () {
     const { user, authenticated } = this.state
     return (
-      <>
-        {authenticated ? (
-          <>
-            <User user={user.discord} />
-            <Characters /><br />
-            <Login authenticated={authenticated} onNotAuthenticated={this.handleNotAuthenticated} />
-          </>
-        ) : (
-          <Login authenticated={authenticated} onNotAuthenticated={this.handleNotAuthenticated} />
-        )}
-      </>
+      <Layout>
+        <Content className='content-top-padding'>
+          <Row justify='center'>
+            <Col span={6}>
+              {authenticated ? (
+                <>
+                  <User user={user.discord} onNotAuthenticated={this.handleNotAuthenticated} />
+                  <Characters />
+                </>
+              ) : (
+                <Login />
+              )}
+            </Col>
+          </Row>
+        </Content>
+      </Layout>
     )
   }
 }
