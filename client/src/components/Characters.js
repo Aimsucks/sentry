@@ -4,7 +4,6 @@ import axios from 'axios'
 import { Row, Col, Typography } from 'antd'
 
 import ListCharacters from './ListCharacters'
-import AddCharacter from './AddCharacter'
 
 const { Title } = Typography
 
@@ -42,7 +41,6 @@ class Characters extends Component {
               </Col>
             </Row>
             <ListCharacters characters={characters} updateCharacters={this.getCharacters} />
-            <AddCharacter />
           </Col>
         </Row>
       </>

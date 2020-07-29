@@ -4,6 +4,7 @@ import axios from 'axios'
 import User from './User'
 import Characters from './Characters'
 import Login from './Login'
+import Footer from './Footer'
 
 import { Layout, Row, Col } from 'antd'
 const { Content } = Layout
@@ -46,6 +47,7 @@ class Profile extends Component {
                 <>
                   <User user={user.discord} onNotAuthenticated={this.handleNotAuthenticated} />
                   <Characters />
+                  <Footer />
                 </>
               ) : (
                 <Login />

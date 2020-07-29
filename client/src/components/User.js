@@ -1,16 +1,10 @@
 import React, { Component } from 'react'
 
-import { Row, Col, Typography, Avatar, Button } from 'antd'
-import { LogoutOutlined } from '@ant-design/icons'
+import { Row, Col, Typography, Avatar } from 'antd'
 
 const { Title } = Typography
 
 class User extends Component {
-  handleLogoutClick = () => {
-    window.open('http://localhost:5000/auth/logout', '_self')
-    this.props.onNotAuthenticated()
-  };
-
   render () {
     const { user } = this.props
     return (
@@ -30,9 +24,6 @@ class User extends Component {
                 <Title level={3} type='secondary' className='no-title-margin'>#{user.discriminator}</Title>
               </Col>
             </Row>
-          </Col>
-          <Col span={4}>
-            <Button danger type='text' icon={<LogoutOutlined />} shape='circle' size='large' onClick={this.handleLogoutClick} />
           </Col>
         </Row>
       </>
