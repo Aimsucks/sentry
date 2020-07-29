@@ -38,7 +38,7 @@ class Profile extends Component {
   render () {
     const { user, authenticated } = this.state
     return (
-      <Layout>
+      <Layout className='bg layout'>
         <Content className='content-top-padding'>
           <Row justify='center'>
             <Col span={6}>

@@ -9,7 +9,7 @@ export default class Login extends Component {
       <>
         <Row className='centered-text' style={{ marginTop: 20 }}>
           <Col>
-            <Button type='ghost' icon={<PlusOutlined />} shape='circle' size='large' onClick={this.handleAddCharacterClick} />
+            <Button type='text' icon={<PlusOutlined />} shape='circle' size='large' onClick={this.handleAddCharacterClick} />
           </Col>
         </Row>
       </>

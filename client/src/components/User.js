@@ -32,7 +32,7 @@ class User extends Component {
             </Row>
           </Col>
           <Col span={4}>
-            <Button type='ghost' icon={<LogoutOutlined />} shape='circle' size='large' onClick={this.handleLogoutClick} />
+            <Button danger type='text' icon={<LogoutOutlined />} shape='circle' size='large' onClick={this.handleLogoutClick} />
           </Col>
         </Row>
       </>

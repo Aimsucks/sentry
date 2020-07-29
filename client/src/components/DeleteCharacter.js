@@ -22,7 +22,7 @@ class DeleteCharacter extends Component {
   render () {
     return (
       <>
-        <Button danger type='ghost' icon={<DeleteOutlined />} shape='circle' size='large' onClick={this.handleDeleteClick} />
+        <Button danger type='text' icon={<DeleteOutlined />} shape='circle' size='large' onClick={this.handleDeleteClick} />
       </>
     )
   }

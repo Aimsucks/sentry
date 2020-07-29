@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 import { Button } from 'antd'
-import { StarOutlined } from '@ant-design/icons'
+import { StarOutlined, StarFilled } from '@ant-design/icons'
 
 export default class SetMainCharacter extends Component {
   setMainCharacter = (characterID) => {
@@ -22,7 +22,7 @@ export default class SetMainCharacter extends Component {
   render () {
     return (
       <>
-        <Button disabled={this.props.disabled} type='ghost' icon={<StarOutlined />} shape='circle' size='large' onClick={this.handleStarClick} />
+        <Button disabled={this.props.disabled} type='text' icon={this.props.disabled ? <StarFilled /> : <StarOutlined />} shape='circle' size='large' onClick={this.handleStarClick} />
       </>
     )
   }

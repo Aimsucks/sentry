@@ -32,11 +32,11 @@ const ListCharacters = ({ characters, updateCharacters }) => {
                       <Row>
                         <Col>
                           <Tooltip placement='bottom' title={character.corporation.name}>
-                            <Avatar size={30} src={`https://images.evetech.net/corporations/${character.corporation.id}/logo`} />
+                            <Avatar size={30} style={{ background: 'black' }} src={`https://images.evetech.net/corporations/${character.corporation.id}/logo`} />
                           </Tooltip>
                           {character.corporation.alliance ? (
                             <Tooltip placement='bottom' title={character.corporation.alliance.name}>
-                              <Avatar size={30} src={`https://images.evetech.net/alliances/${character.corporation.alliance.id}/logo`} />
+                              <Avatar size={30} style={{ marginLeft: 10, background: 'black' }} src={`https://images.evetech.net/alliances/${character.corporation.alliance.id}/logo`} />
                             </Tooltip>
                           ) : ''}
                         </Col>
