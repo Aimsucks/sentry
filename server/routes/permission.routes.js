@@ -3,8 +3,8 @@ const permissionController = require('../controllers/permission.controllers')
 
 router.get('/:roleID', permissionController.findRolePermissions)
 
-router.get('/:roleID/characters/:characterIDs', permissionController.setCharacterPermissions)
-router.get('/:roleID/corporations/:corporationIDs', permissionController.setCorporationPermissions)
-router.get('/:roleID/alliances/:allianceIDs', permissionController.setAlliancePermissions)
+router.put('/:roleID/characters/:characterIDs', permissionController.setCharacterPermissions)
+router.put('/:roleID/corporations/:corporationIDs', permissionController.setCorporationPermissions)
+router.put('/:roleID/alliances/:allianceIDs', permissionController.setAlliancePermissions)
 
 module.exports = router
