@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 import User from './User'
-import Characters from './Characters'
+import Characters from './characters/Characters'
 import Login from './Login'
-import Footer from './Footer'
+import Footer from './characters/Footer'
+import Admin from './admin/Admin'
 
 import { Layout, Row, Col } from 'antd'
 const { Content } = Layout
