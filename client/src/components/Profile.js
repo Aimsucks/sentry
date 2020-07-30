@@ -46,9 +46,10 @@ class Profile extends Component {
             <Col xs={23} sm={23} md={12} lg={12} xl={8} xxl={6}>
               {authenticated ? (
                 <>
-                  <User user={user.discord} onNotAuthenticated={this.handleNotAuthenticated} />
+                  <Admin guilds={this.state.user.guilds} />
+                  {/* <User user={user.discord} onNotAuthenticated={this.handleNotAuthenticated} />
                   <Characters />
-                  <Footer />
+                  <Footer /> */}
                 </>
               ) : (
                 <Login />
