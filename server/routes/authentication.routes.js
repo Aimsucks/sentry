@@ -1,10 +1,11 @@
 const router = require('express').Router()
 const passport = require('passport')
-const discord = require('../discord').client
+const discord = require('../discord')
 
 router.get('/login/success', async (req, res) => {
   if (req.user) {
-    const discordUser = await discord.users.fetch(req.user.id)
+    const discordUser = await discord.client.users.fetch(req.user.id)
+    const discordGuilds = await discord.admin.checkUserAdmin(req.user.id)
     res.json({
       success: true,
       message: 'Succeeded to authenticate',
@@ -14,7 +15,8 @@ router.get('/login/success', async (req, res) => {
         username: discordUser.username,
         discriminator: discordUser.discriminator,
         avatar: discordUser.displayAvatarURL({ format: 'png' })
-      }
+      },
+      guilds: discordGuilds
     })
   } else {
     res.json({
