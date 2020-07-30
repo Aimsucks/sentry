@@ -9,8 +9,8 @@ class User extends Component {
     const { user } = this.props
     return (
       <>
-        <Row type='flex' style={{ alignItems: 'center' }} className='centered-text'>
-          <Col span={4}>
+        <Row type='flex' style={{ alignItems: 'center' }} className='centered-text row-content-justify-between'>
+          <Col span={6}>
             <Avatar size={80} src={user.avatar} style={{ marginRight: 10 }} />
           </Col>
           <Col style={{ paddingRight: 25 }}>

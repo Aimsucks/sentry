@@ -23,3 +23,8 @@ body {
   margin-bottom: 0 !important;
   margin-top: 0 !important;
 }
+.character-name {
+  font-weight: bold;
+  font-size: 23px;
+  color: white;
+}
