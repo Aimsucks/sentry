@@ -5,7 +5,7 @@ import SetMainCharacter from './SetMainCharacter'
 
 import { Row, Col, Typography, Avatar, Tooltip } from 'antd'
 
-const { Title, Text } = Typography
+const { Text } = Typography
 
 const ListCharacters = ({ characters, updateCharacters }) => {
   return (
@@ -20,16 +20,16 @@ const ListCharacters = ({ characters, updateCharacters }) => {
               return (
                 <>
                   <Row key={index} type='flex' style={{ alignItems: 'center', textAlign: 'center', paddingTop: 10, paddingBottom: 10, height: 80 }}>
-                    <Col span={4} style={{height: '100%'}}>
+                    <Col span={4} style={{ height: '100%' }}>
                       <Avatar size={60} src={`https://images.evetech.net/characters/${character.id}/portrait`} />
                     </Col>
-                    <Col span={16} style={{height: '100%'}}>
+                    <Col span={16} style={{ height: '100%' }}>
                       <Row style={{ height: '50%' }}>
                         <Col>
                           <Text className='no-title-margin character-name'>{character.name}</Text>
                         </Col>
                       </Row>
-                      <Row style={{height: '50%'}}>
+                      <Row style={{ height: '50%' }}>
                         <Col>
                           <Tooltip placement='bottom' title={character.corporation.name}>
                             <Avatar size={30} style={{ background: 'black' }} src={`https://images.evetech.net/corporations/${character.corporation.id}/logo`} />
