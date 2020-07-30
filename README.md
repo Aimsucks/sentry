@@ -4,7 +4,7 @@
 
 <h1 align="center">Sentry</h1>
 <p align="center">
-  <b>Simple authentication bot for EVE Online Discord servers</b></br>
+  <b>Simple authentication platform for EVE Online Discord servers</b></br>
   <sub>Use this bot to authenticate users' Discord accounts with an EVE Online character. This is hosted publicly by me, but if you would like to host your own, it is very simple.<sub>
 </p>
 
