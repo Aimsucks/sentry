@@ -6,5 +6,6 @@ client.once('ready', async () => {
 })
 
 module.exports.admin = require('./admin')
+module.exports.roles = require('./roles')
 
 module.exports.client = client

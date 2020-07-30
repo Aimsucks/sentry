@@ -1,6 +1,8 @@
 const router = require('express').Router()
-const characterController = require('../controllers/discord.controllers')
+const discordController = require('../controllers/discord.controllers')
 
-router.get('/admin', characterController.getAdmin)
+router.get('/admin', discordController.getAdmin)
+
+router.get('/roles/:id', discordController.getGuildRoles)
 
 module.exports = router
