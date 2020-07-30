@@ -2,9 +2,9 @@ const { models } = require('../models')
 
 module.exports.findRolePermissions = async (req, res) => {
   try {
-    const roleID = req.params.roleID
+    const roleIDs = req.params.roleIDs.split(',')
 
-    const roles = await models.role.findAll({ where: { roleID: roleID }, include: { all: true, nested: true } })
+    const roles = await models.role.findAll({ where: { id: roleIDs }, include: [models.character, models.corporation, models.alliance] })
 
     res.send(roles.map(role => role.toJSON()))
   } catch (err) {
