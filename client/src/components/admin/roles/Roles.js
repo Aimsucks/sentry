@@ -4,9 +4,8 @@ import React, { Component } from 'react'
 
 import { Row, Col } from 'antd'
 
-import CharacterSelect from './CharacterSelect'
-import CorporationSelect from './CorporationSelect'
-import AllianceSelect from './AllianceSelect'
+import Permission from './Permission'
+import AddNewPermission from './AddNewPermission'
 
 export default class GuildDropdown extends Component {
   state = {
@@ -14,51 +13,53 @@ export default class GuildDropdown extends Component {
     permissions: []
   }
 
+  getGuildRoles = () => {
+    axios.get(`/api/discord/roles/${this.props.guild}`)
+      .then(res => {
+        if (res.data) {
+          this.setState({
+            roles: res.data
+          })
+          this.getGuildPermissions(res.data)
+        }
+      })
+      .catch(err => console.log(err))
+  }
+
+  getGuildPermissions = (roles) => {
+    axios.get(`/api/permissions/${roles.map(guild => guild.id).join(',')}`)
+      .then(permissionsResponse => {
+        if (permissionsResponse.data) {
+          this.setState({
+            permissions: permissionsResponse.data
+          })
+        }
+      })
+      .catch(err => console.log(err))
+  }
+
   componentDidMount () {
     this.getGuildRoles()
   }
 
-  getGuildRoles = () => {
-    axios.get(`/api/discord/roles/${this.props.guild}`)
-      .then(rolesResponse => {
-        if (rolesResponse.data) {
-          this.setState({
-            roles: rolesResponse.data
-          })
-          axios.get(`/api/permissions/${rolesResponse.data.map(guild => guild.id).join(',')}`)
-            .then(permissionsResponse => {
-              if (permissionsResponse.data) {
-                this.setState({
-                  permissions: permissionsResponse.data
-                })
-              }
-            })
-        }
-      })
-      .catch(err => console.log(err))
+  componentDidUpdate (prevProps) {
+    if (this.props.guild !== prevProps.guild) { this.getGuildRoles() }
   }
 
   render () {
     const { roles, permissions } = this.state
     return (
       <>
-        {permissions && permissions.length > 0 && roles && roles.length
-          ? (permissions.map((permission, index) => {
-            console.log(roles)
-            const role = roles.find(r => r.id === permissions.id)
-            console.log(role)
-            return (
-              <Row key={index}>
-                <Col>
-                e
-                  {/* {role.name} */}
-                  {/* <CharacterSelect characters={permission.characters} />
-              <CorporationSelect corporations={permission.corporations} />
-              <AllianceSelect alliances={permission.alliances} /> */}
-                </Col>
-              </Row>
-            )
-          })) : ''}
+        {permissions.length > 0 ? (
+          <Row>
+            <Col span={24}>
+              <Permission permissions={permissions} roles={roles} />
+            </Col>
+          </Row>
+        ) : ''}
+        {roles.length > 0 ? (
+          <AddNewPermission roles={roles} />
+        ) : ''}
       </>
     )
   }
