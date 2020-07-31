@@ -1,6 +1,6 @@
 const discord = require('../discord')
 
-module.exports.getGuildRoles = async guildID => {
+module.exports.getGuildRoles = guildID => {
   const guild = discord.client.guilds.cache.get(guildID)
 
   const roles = guild.roles.cache
