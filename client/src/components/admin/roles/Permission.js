@@ -1,30 +1,56 @@
 import React, { Component } from 'react'
 
-import { Row, Col, List, Typography, Skeleton } from 'antd'
+import { List } from 'antd'
 
-import CharacterSelect from './CharacterSelect'
-import CorporationSelect from './CorporationSelect'
-import AllianceSelect from './AllianceSelect'
+import PermissionSelect from './PermissionSelect'
 
-export default class Permission extends Component {
-  // grab characters/corporations/alliances here and pass to components as props
+export default class PermissionItem extends Component {
+  state = {
+    characters: [...this.props.permission.characters.map(i => i.id)],
+    corporations: [...this.props.permission.corporations.map(i => i.id)],
+    alliances: [...this.props.permission.alliances.map(i => i.id)]
+  }
+
+  handleCharacterSelectChange = options => {
+    this.setState({ characters: options })
+  }
+
+  handleCorporationSelectChange = options => {
+    this.setState({ corporations: options })
+  }
+
+  handleAllianceSelectChange = options => {
+    this.setState({ alliances: options })
+  }
+
   render () {
-    const { permissions, roles } = this.props
-    const span = 6
+    const { role, options } = this.props
+    const { characters, corporations, alliances } = this.state
+
     return (
-      <List
-        dataSource={permissions}
-        renderItem={item => (
-          <List.Item>
-            {/* <List.Item.Meta
-              title={roles.find(role => role.id === item.id).name}
-            /> */}
-            <div>
-              {roles.find(role => role.id === item.id).name}
-            </div>
-          </List.Item>
-        )}
-      />
+      <List.Item>
+        <div>
+          {role.name}
+          <PermissionSelect
+            type='character'
+            value={characters}
+            options={[...options.characters]}
+            onSelectChange={this.handleCharacterSelectChange}
+          />
+          <PermissionSelect
+            type='corporation'
+            value={corporations}
+            options={[...options.corporations]}
+            onSelectChange={this.handleCorporationSelectChange}
+          />
+          <PermissionSelect
+            type='alliance'
+            value={alliances}
+            options={[...options.alliances]}
+            onSelectChange={this.handleAllianceSelectChange}
+          />
+        </div>
+      </List.Item>
     )
   }
 }

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import React, { Component } from 'react'
 
-import { Row, Col } from 'antd'
+import { Row, Col, List } from 'antd'
 
 import Permission from './Permission'
 import AddNewPermission from './AddNewPermission'
@@ -10,7 +10,8 @@ import AddNewPermission from './AddNewPermission'
 export default class GuildDropdown extends Component {
   state = {
     roles: [],
-    permissions: []
+    permissions: [],
+    options: {}
   }
 
   getGuildRoles = () => {
@@ -28,18 +29,30 @@ export default class GuildDropdown extends Component {
 
   getGuildPermissions = (roles) => {
     axios.get(`/api/permissions/${roles.map(guild => guild.id).join(',')}`)
-      .then(permissionsResponse => {
-        if (permissionsResponse.data) {
+      .then(res => {
+        if (res.data) {
           this.setState({
-            permissions: permissionsResponse.data
+            permissions: res.data
           })
         }
       })
       .catch(err => console.log(err))
   }
 
+  getSelectOptions = () => {
+    axios.get('/api/characters/all')
+      .then(res => {
+        if (res.data) {
+          this.setState({
+            options: res.data
+          })
+        }
+      })
+  }
+
   componentDidMount () {
     this.getGuildRoles()
+    this.getSelectOptions()
   }
 
   componentDidUpdate (prevProps) {
@@ -47,13 +60,18 @@ export default class GuildDropdown extends Component {
   }
 
   render () {
-    const { roles, permissions } = this.state
+    const { roles, permissions, options } = this.state
     return (
       <>
-        {permissions.length > 0 ? (
+        {permissions.length > 0 && options.characters.length > 0 ? (
           <Row>
             <Col span={24}>
-              <Permission permissions={permissions} roles={roles} />
+              <List
+                dataSource={permissions}
+                renderItem={item => (
+                  <Permission options={options} role={roles.find(role => role.id === item.id)} permission={item} />
+                )}
+              />
             </Col>
           </Row>
         ) : ''}
