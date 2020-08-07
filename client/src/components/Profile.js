@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import User from './User'
-import Characters from './characters/Characters'
+// import User from './User'
+// import Characters from './characters/Characters'
 import Login from './Login'
-import Footer from './characters/Footer'
+// import Footer from './characters/Footer'
 import Admin from './admin/Admin'
 
 import { Layout, Row, Col } from 'antd'
@@ -38,12 +38,13 @@ class Profile extends Component {
   }
 
   render () {
-    const { user, authenticated } = this.state
+    // const { user, authenticated } = this.state
+    const { authenticated } = this.state
     return (
       <Layout className='bg layout'>
         <Content className='content-top-padding'>
           <Row justify='center'>
-            <Col xs={23} sm={23} md={12} lg={12} xl={8} xxl={6}>
+            <Col span={12}>
               {authenticated ? (
                 <>
                   <Admin guilds={this.state.user.guilds} />
