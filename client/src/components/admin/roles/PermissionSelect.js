@@ -9,7 +9,7 @@ export default class Permission extends Component {
     return (
       <Select
         mode='multiple'
-        style={{ width: '300px' }}
+        style={{ width: '100%' }}
         placeholder={`Select ${type === 'alliance' ? 'an' : 'a'} ${type}`}
         value={value}
         onChange={onSelectChange}

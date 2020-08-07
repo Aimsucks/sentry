@@ -21,14 +21,14 @@ export default class GuildDropdown extends Component {
           this.setState({
             roles: res.data
           })
-          this.getGuildPermissions(res.data)
+          this.getGuildPermissions()
         }
       })
       .catch(err => console.log(err))
   }
 
-  getGuildPermissions = (roles) => {
-    axios.get(`/api/permissions/${roles.map(guild => guild.id).join(',')}`)
+  getGuildPermissions = () => {
+    axios.get(`/api/permissions/${this.state.roles.map(guild => guild.id).join(',')}`)
       .then(res => {
         if (res.data) {
           this.setState({
@@ -63,13 +63,18 @@ export default class GuildDropdown extends Component {
     const { roles, permissions, options } = this.state
     return (
       <>
-        {permissions.length > 0 && options.characters.length > 0 ? (
+        {roles.length > 0 && permissions.length > 0 && options.characters.length > 0 ? (
           <Row>
             <Col span={24}>
               <List
                 dataSource={permissions}
                 renderItem={item => (
-                  <Permission options={options} role={roles.find(role => role.id === item.id)} permission={item} />
+                  <Permission
+                    updatePermissions={this.getGuildPermissions}
+                    options={options}
+                    role={roles.find(role => role.id === item.id)}
+                    permission={item}
+                  />
                 )}
               />
             </Col>
