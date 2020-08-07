@@ -1,10 +1,27 @@
 const { models } = require('../models')
 
-module.exports.findAll = async (req, res) => {
+module.exports.findOwned = async (req, res) => {
   try {
     const id = req.user.id
     const characters = await models.character.findAll({ where: { userId: id }, include: { all: true, nested: true }, order: [['name', 'ASC']] })
     res.send(characters.map(character => character.toJSON()))
+  } catch (err) {
+    console.error(err)
+    res.status(500).send({ message: err.message || 'Cannot fetch characters' })
+  }
+}
+
+module.exports.findAll = async (req, res) => {
+  try {
+    const characters = await models.character.findAll({ order: [['name', 'ASC']] })
+    const corporations = await models.corporation.findAll({ order: [['name', 'ASC']] })
+    const alliances = await models.alliance.findAll({ order: [['name', 'ASC']] })
+    const objects = {
+      characters: characters.map(c => c.toJSON()),
+      corporations: corporations.map(c => c.toJSON()),
+      alliances: alliances.map(a => a.toJSON())
+    }
+    res.send(objects)
   } catch (err) {
     console.error(err)
     res.status(500).send({ message: err.message || 'Cannot fetch characters' })
