@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import React, { Component } from 'react'
 
-import { Row, Col, List } from 'antd'
+import { Row, Col, List, Divider } from 'antd'
 
 import Permission from './Permission'
 import AddNewPermission from './AddNewPermission'
@@ -72,6 +72,7 @@ export default class GuildDropdown extends Component {
         {roles.length > 0 && permissions.length > 0 && options.characters.length > 0 ? (
           <Row>
             <Col span={24}>
+              <Divider />
               <List
                 dataSource={permissions}
                 renderItem={item => (
@@ -83,6 +84,7 @@ export default class GuildDropdown extends Component {
                   />
                 )}
               />
+              <Divider />
             </Col>
           </Row>
         ) : ''}

@@ -31,16 +31,16 @@ export default class PermissionItem extends Component {
   }
 
   render () {
-    const { role, options, permission } = this.props
+    const { role, options } = this.props
     const { characters, corporations, alliances, modified } = this.state
 
     return (
       <List.Item style={{ display: 'block' }}>
-        <Row justify='center' gutter={8}>
-          <Col span={4}>
+        <Row justify='center' align='middle' gutter={8}>
+          <Col flex={1}>
             {role.name}
           </Col>
-          <Col span={6}>
+          <Col flex={1}>
             <PermissionSelect
               type='character'
               value={characters}
@@ -48,7 +48,7 @@ export default class PermissionItem extends Component {
               onSelectChange={this.handleCharacterSelectChange}
             />
           </Col>
-          <Col span={6}>
+          <Col flex={1}>
             <PermissionSelect
               type='corporation'
               value={corporations}
@@ -56,7 +56,7 @@ export default class PermissionItem extends Component {
               onSelectChange={this.handleCorporationSelectChange}
             />
           </Col>
-          <Col span={6}>
+          <Col flex={1}>
             <PermissionSelect
               type='alliance'
               value={alliances}
@@ -64,7 +64,7 @@ export default class PermissionItem extends Component {
               onSelectChange={this.handleAllianceSelectChange}
             />
           </Col>
-          <Col span={2}>
+          <Col align='right' flex={1}>
             {modified ? (
               <SavePermission
                 characters={characters}
