@@ -7,7 +7,7 @@ import ListCharacters from './ListCharacters'
 
 const { Title } = Typography
 
-class Characters extends Component {
+export default class Characters extends Component {
   state = {
     characters: []
   }
@@ -47,5 +47,3 @@ class Characters extends Component {
     )
   }
 }
-
-export default Characters

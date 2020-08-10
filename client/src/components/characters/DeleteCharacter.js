@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Button } from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
 
-class DeleteCharacter extends Component {
+export default class DeleteCharacter extends Component {
   deleteCharacter = (characterID) => {
     axios.delete(`/api/characters/${characterID}`)
       .then(res => {
@@ -27,5 +27,3 @@ class DeleteCharacter extends Component {
     )
   }
 }
-
-export default DeleteCharacter

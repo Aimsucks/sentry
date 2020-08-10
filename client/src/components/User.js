@@ -4,7 +4,7 @@ import { Row, Col, Typography, Avatar } from 'antd'
 
 const { Title } = Typography
 
-class User extends Component {
+export default class User extends Component {
   render () {
     const { user } = this.props
     return (
@@ -30,5 +30,3 @@ class User extends Component {
     )
   }
 }
-
-export default User

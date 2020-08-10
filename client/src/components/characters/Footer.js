@@ -4,6 +4,15 @@ import { Row, Col, Button } from 'antd'
 import { PlusOutlined, LogoutOutlined } from '@ant-design/icons'
 
 export default class Footer extends Component {
+  handleLogoutClick = () => {
+    window.open('http://localhost:5000/auth/logout', '_self')
+    this.props.onNotAuthenticated()
+  }
+
+  handleAddCharacterClick = () => {
+    window.open('http://localhost:5000/auth/eve', '_self')
+  }
+
   render () {
     return (
       <>
@@ -18,13 +27,4 @@ export default class Footer extends Component {
       </>
     )
   }
-
-  handleLogoutClick = () => {
-    window.open('http://localhost:5000/auth/logout', '_self')
-    this.props.onNotAuthenticated()
-  };
-
-  handleAddCharacterClick = () => {
-    window.open('http://localhost:5000/auth/eve', '_self')
-  };
 }
