@@ -56,7 +56,13 @@ export default class GuildDropdown extends Component {
   }
 
   componentDidUpdate (prevProps) {
-    if (this.props.guild !== prevProps.guild) { this.getGuildRoles() }
+    if (this.props.guild !== prevProps.guild) {
+      this.setState({
+        roles: [],
+        permissions: []
+      })
+      this.getGuildRoles()
+    }
   }
 
   render () {
