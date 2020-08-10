@@ -13,6 +13,17 @@ module.exports.findRolePermissions = async (req, res) => {
   }
 }
 
+module.exports.createPermission = async (req, res) => {
+  try {
+    const role = await models.role.findOrCreate({ where: { id: req.params.roleID }, defaults: { id: req.params.roleID } })
+
+    res.send({ message: 'Permission created successfully' })
+  } catch (err) {
+    console.error(err)
+    res.status(500).send({ message: err.message || 'Cannot create permission' })
+  }
+}
+
 module.exports.setCharacterPermissions = async (req, res) => {
   try {
     const role = await models.role.findOrCreate({ where: { id: req.params.roleID }, defaults: { id: req.params.roleID } })
