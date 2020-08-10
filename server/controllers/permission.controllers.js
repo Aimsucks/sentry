@@ -59,7 +59,7 @@ module.exports.setAlliancePermissions = async (req, res) => {
 
 module.exports.deletePermission = async (req, res) => {
   try {
-    const id = req.params.id
+    const id = req.params.roleID
 
     console.log(`Beginning deletion process for role with ID ${id}`)
 
