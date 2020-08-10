@@ -15,7 +15,7 @@ module.exports.findRolePermissions = async (req, res) => {
 
 module.exports.createPermission = async (req, res) => {
   try {
-    const role = await models.role.findOrCreate({ where: { id: req.params.roleID }, defaults: { id: req.params.roleID } })
+    await models.role.findOrCreate({ where: { id: req.params.roleID }, defaults: { id: req.params.roleID } })
 
     res.send({ message: 'Permission created successfully' })
   } catch (err) {
