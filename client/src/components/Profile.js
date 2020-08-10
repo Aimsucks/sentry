@@ -1,66 +1,18 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 
-// import User from './User'
-// import Characters from './characters/Characters'
-import Login from './Login'
-// import Footer from './characters/Footer'
-import Admin from './admin/Admin'
+import User from './User'
+import Characters from './characters/Characters'
+import Footer from './characters/Footer'
 
-import { Layout, Row, Col } from 'antd'
-const { Content } = Layout
-
-class Profile extends Component {
-  state = {
-    authenticated: false,
-    user: {}
-  }
-
-  handleNotAuthenticated = () => {
-    this.setState({ authenticated: false })
-  }
-
-  componentDidMount () {
-    this.getUser()
-  }
-
-  getUser = () => {
-    axios.get('/auth/login/success')
-      .then(res => {
-        if (res.data.success) {
-          this.setState({
-            authenticated: true,
-            user: res.data
-          })
-        }
-      })
-      .catch(err => console.log(err))
-  }
-
+export default class Profile extends Component {
   render () {
-    // const { user, authenticated } = this.state
-    const { authenticated } = this.state
+    const { user, onNotAuthenticated } = this.props
     return (
-      <Layout className='bg layout'>
-        <Content className='content-top-padding'>
-          <Row justify='center'>
-            <Col span={12}>
-              {authenticated ? (
-                <>
-                  <Admin guilds={this.state.user.guilds} />
-                  {/* <User user={user.discord} onNotAuthenticated={this.handleNotAuthenticated} />
-                  <Characters />
-                  <Footer /> */}
-                </>
-              ) : (
-                <Login />
-              )}
-            </Col>
-          </Row>
-        </Content>
-      </Layout>
+      <>
+        <User user={user.discord} onNotAuthenticated={onNotAuthenticated} />
+        <Characters />
+        <Footer />
+      </>
     )
   }
 }
-
-export default Profile
