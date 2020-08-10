@@ -16,11 +16,11 @@ export default class Footer extends Component {
   render () {
     return (
       <>
-        <Row className='centered-text' style={{ marginTop: 20 }}>
-          <Col span={2}>
+        <Row justify='center' align='middle' style={{ marginTop: 20 }}>
+          <Col>
             <Button type='text' icon={<PlusOutlined />} shape='circle' size='large' onClick={this.handleAddCharacterClick} />
           </Col>
-          <Col span={2}>
+          <Col>
             <Button danger type='text' icon={<LogoutOutlined />} shape='circle' size='large' onClick={this.handleLogoutClick} />
           </Col>
         </Row>

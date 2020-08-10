@@ -7,6 +7,12 @@ body {
    background-size: cover;
 }
 
+.ant-menu-item-selected,
+.ant-menu-item:hover {
+    color: #ffffff !important;
+    border-bottom: 2px solid #ffffff !important;
+}
+
 .bg {
   background: transparent;
 }
@@ -27,4 +33,9 @@ body {
   font-weight: bold;
   font-size: 23px;
   color: white;
+  display:block;
+  max-width: 400px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

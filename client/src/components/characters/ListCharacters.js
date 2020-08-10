@@ -21,11 +21,11 @@ export default class ListCharacters extends Component {
               }).map((character, index) => {
                 return (
                   <div key={index}>
-                    <Row type='flex' style={{ alignItems: 'center', textAlign: 'center', paddingTop: 10, paddingBottom: 10, height: 80 }}>
+                    <Row type='flex' justify='center' align='middle' style={{ alignItems: 'center', textAlign: 'center', paddingTop: 10, paddingBottom: 10, height: 80 }}>
                       <Col span={4} style={{ height: '100%' }}>
                         <Avatar size={60} src={`https://images.evetech.net/characters/${character.id}/portrait`} />
                       </Col>
-                      <Col span={16} style={{ height: '100%' }}>
+                      <Col span={12} style={{ height: '100%' }}>
                         <Row style={{ height: '50%' }}>
                           <Col>
                             <Text className='no-title-margin character-name'>{character.name}</Text>
@@ -51,7 +51,7 @@ export default class ListCharacters extends Component {
                         <DeleteCharacter characterID={character.id} updateCharacters={updateCharacters} />
                       </Col>
                     </Row>
-                    {character.main ? (
+                    {character.main && characters.length > 1 ? (
                       <hr
                         style={{
                           color: 'rgb(255, 255, 255, 0.6)',
