@@ -33,8 +33,6 @@ export default class PermissionItem extends Component {
   render () {
     const { role, options, permission } = this.props
     const { characters, corporations, alliances, modified } = this.state
-    console.log(permission.characters.map(c => c.id))
-    console.log(characters)
 
     return (
       <List.Item style={{ display: 'block' }}>
