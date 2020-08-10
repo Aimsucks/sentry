@@ -89,7 +89,7 @@ export default class GuildDropdown extends Component {
         {roles.length > 0 && permissions.length > 0 && options.characters.length > 0 ? (
           <Row>
             <Col span={24}>
-              <Divider />
+
               <List
                 dataSource={permissions}
                 renderItem={item => (
@@ -101,10 +101,10 @@ export default class GuildDropdown extends Component {
                   />
                 )}
               />
-              <Divider />
             </Col>
           </Row>
         ) : ''}
+        <Divider />
         {roles.length > 0 ? (
           <AddNewPermission roles={roles} permissions={permissions} onSelectChange={this.handlePermissionAddSelectChange} onAdd={this.handlePermissionAdd} />
         ) : ''}

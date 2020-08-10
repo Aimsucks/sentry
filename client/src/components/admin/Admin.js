@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Row, Col } from 'antd'
+import { Row, Col, Divider } from 'antd'
 
 import GuildDropdown from './GuildDropdown'
 import Roles from './roles/Roles'
@@ -23,6 +23,7 @@ export default class Admin extends Component {
             <GuildDropdown guildList={this.props.guilds} onSelectChange={this.handleSelectedGuildChange} />
           </Col>
         </Row>
+        <Divider />
         <Roles guild={selectedGuild} />
       </>
     )
