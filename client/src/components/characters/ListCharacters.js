@@ -18,8 +18,8 @@ const ListCharacters = ({ characters, updateCharacters }) => {
               return y.main - x.main
             }).map((character, index) => {
               return (
-                <>
-                  <Row key={index} type='flex' style={{ alignItems: 'center', textAlign: 'center', paddingTop: 10, paddingBottom: 10, height: 80 }}>
+                <div key={index}>
+                  <Row type='flex' style={{ alignItems: 'center', textAlign: 'center', paddingTop: 10, paddingBottom: 10, height: 80 }}>
                     <Col span={4} style={{ height: '100%' }}>
                       <Avatar size={60} src={`https://images.evetech.net/characters/${character.id}/portrait`} />
                     </Col>
@@ -58,7 +58,7 @@ const ListCharacters = ({ characters, updateCharacters }) => {
                       }}
                     />
                   ) : ''}
-                </>
+                </div>
               )
             })
           )
