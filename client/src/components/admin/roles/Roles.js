@@ -11,7 +11,8 @@ export default class GuildDropdown extends Component {
   state = {
     roles: [],
     permissions: [],
-    options: {}
+    options: {},
+    addPermissionOption: ''
   }
 
   getGuildRoles = () => {
@@ -48,6 +49,22 @@ export default class GuildDropdown extends Component {
           })
         }
       })
+  }
+
+  handlePermissionAddSelectChange = (value) => {
+    this.setState({
+      addPermissionOption: value
+    })
+  }
+
+  handlePermissionAdd = () => {
+    axios.post(`/api/permissions/${this.state.addPermissionOption}`)
+      .then(res => {
+        if (res.data) {
+          this.getGuildPermissions()
+        }
+      })
+      .catch(err => console.log(err))
   }
 
   componentDidMount () {
@@ -89,7 +106,7 @@ export default class GuildDropdown extends Component {
           </Row>
         ) : ''}
         {roles.length > 0 ? (
-          <AddNewPermission roles={roles} />
+          <AddNewPermission roles={roles} permissions={permissions} onSelectChange={this.handlePermissionAddSelectChange} onAdd={this.handlePermissionAdd} />
         ) : ''}
       </>
     )
