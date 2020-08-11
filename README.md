@@ -35,13 +35,13 @@ This project uses the `Node.js` platform. Make sure that's installed. Details ca
 
 After you've forked and cloned the repository, you will need to create a Discord application and ESI application.
 
-## Discord
+### Discord
 
 Head over to the Discord [developer site](https://discord.com/developers/applications) and create a new application. Take note of the client ID, client secret, and then create a bot for the application. Also note the token for the bot, and put all three of the values into their respective variables in the `.env` file in the `server` directory.
 
 Go to the OAuth 2 page and check `bot` under the `scopes` header and copy the link it generates. This link will invite the bot to a server of your choosing, so open it and invite it to your development server.
 
-## ESI
+### ESI
 
 Go to the EVE Online [developer site](https://developers.eveonline.com/) and click `Manage Applications`. Create a new application and give it a name and description. Under `Connection Type` select `Authentication Only`, because this app only authenticates users and does not require OAuth 2 tokens to function.
 
@@ -49,13 +49,13 @@ The callback URL, if you are developing it locally, will be `http://localhost:50
 
 Like Discord, put the client ID and secret into the `.env` file in the `server` directory when you are finished.
 
-<br />
+---
 
 Once you've created your Discord bot and ESI app, and are ready to make changes to the code, navigate into both the `server` and `client` folders and run `npm install` to install the dependencies for each part.
 
 Once the dependencies are installed, you have two options: running both the client and server in the same terminal with `concurrently`, or using two different terminals individually run the processes. 
 
-## Concurrently
+### Concurrently
 
 Concurrently allows you to run multiple commands simultaneously. You can use this on your own by modifiying the command or using the provided command in the server's `package.json`. 
 
@@ -71,7 +71,7 @@ cd server
 npm run dev
 ```
 
-## Separate Terminals
+### Separate Terminals
 
 [Visual Studio Code](https://code.visualstudio.com/) is a fantastic code editor that supports multiple terminals, so it's recommended to use it for this project. To run multiple terminals with VS Code:
 
@@ -89,6 +89,8 @@ nodemon .
 cd client
 npm run start
 ```
+
+---
 
 Both of these methods allow the code to be edited and apps to be refreshed once changes are saved. It makes development a much faster process.
 
