@@ -37,9 +37,15 @@ After you've forked and cloned the repository, you will need to create a Discord
 
 ## Discord
 
-Head over to the Discord [developer site](https://discord.com/developers/applications) and create a new application. Take note of the client ID, client secret, and then create a bot for the application. Also note the token for the bot, and put all three of the values into their respective variables in the `.env` file in the `server` directory.
+Head over to the Discord [developer site](https://discord.com/developers/applications) and create a new application. Take note of the client ID, client secret, and then create a bot for the application. Also note the token for the bot, and put all three of the values into their respective variables in the `.env` file in the `server` directory. Make sure to enable the two inputs under `Privileged Gateway Intents`. 
 
-Go to the OAuth 2 page and check `bot` under the `scopes` header and copy the link it generates. This link will invite the bot to a server of your choosing, so open it and invite it to your development server.
+Go to the OAuth 2 page and check `bot` under the `scopes` header and copy the link it generates. Once you click `bot`, a new input will appear on the bottom of the page that allows you to select permissions to give the bot. **The bot does not need administrator, but it is highly recommended so the bot can change roles and nicknames of all the users.** In this menu, check:
+
+* Administrator (optional)
+* Manage Roles
+* Manage Nicknames
+
+The generated link will invite the bot to a server of your choosing with those permissions, so open it and invite it to your development server.
 
 ## ESI
 
